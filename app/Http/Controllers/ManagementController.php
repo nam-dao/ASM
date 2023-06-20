@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Management;
 use Illuminate\Http\Request;
 
 class ManagementController extends Controller
@@ -11,7 +11,8 @@ class ManagementController extends Controller
      */
     public function index()
     {
-        //
+        $management = Management::all();
+        return view('management.index', ['management' => $management]);
     }
 
     /**
@@ -19,7 +20,7 @@ class ManagementController extends Controller
      */
     public function create()
     {
-        //
+        return view('management.create');
     }
 
     /**
@@ -27,7 +28,15 @@ class ManagementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $managementt = new Management();
+
+        $managementt->name = $request->name;
+        $managementt->address = $request->address;
+        $managementt->phone = $request->phone;
+
+        $managementt->save();
+
+        return redirect('/managements');
     }
 
     /**
@@ -35,7 +44,8 @@ class ManagementController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $management = Management::find($id);
+        return view('management.show', ['management' => $management]);
     }
 
     /**
@@ -43,7 +53,8 @@ class ManagementController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $managementt = Management::find($id);
+        return view('management.edit', ['managementt' => $managementt,]);
     }
 
     /**
@@ -51,7 +62,15 @@ class ManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $managementt = new Management();
+
+        $managementt->name = $request->name;
+        $managementt->address = $request->address;
+        $managementt->phone = $request->phone;
+
+        $managementt->save();
+
+        return redirect('/managements');
     }
 
     /**
@@ -59,6 +78,8 @@ class ManagementController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $managementt = Management::find($id);
+        $managementt->delete();
+        return redirect('/managements');
     }
 }
