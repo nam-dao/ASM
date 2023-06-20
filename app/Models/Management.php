@@ -9,17 +9,11 @@ use App\Models\Store;
 class Management extends Model
 {
     use HasFactory;
-    protected $table = "stores";
+    protected $table = "management";
     protected $filltable = [
-         'area_id', 'management_id', 'tenant_id', 'name', 'des'
+         'name', 'address', 'phone'
     ];
-    public function area() {
-        return $this->belongsTo(Area::class);
-    }
-    public function management() {
-        return $this->belongsTo(Management::class);
-    }
-    public function tenant() {
-        return $this->belongsTo(Tenant::class);
+    public function stores() {
+        return $this->hasMany(Store::class);
     }
 }
