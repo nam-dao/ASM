@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+<<<<<<< HEAD
 class TenatController extends Controller
+=======
+class TenantController extends Controller
+>>>>>>> 63d7f45e7274f6f87ffed407dee381096c13e0bd
 {
     /**
      * Display a listing of the resource.
