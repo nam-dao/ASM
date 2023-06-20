@@ -4,18 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-<<<<<<< HEAD
-class TenatController extends Controller
-=======
 class TenantController extends Controller
->>>>>>> 63d7f45e7274f6f87ffed407dee381096c13e0bd
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $tenants = Tenant::all();
+
+        return view('tenant.index',
+    ['tenants' => $tenants,]);
     }
 
     /**
@@ -23,7 +22,7 @@ class TenantController extends Controller
      */
     public function create()
     {
-        //
+        return view('tenant.create');
     }
 
     /**
@@ -31,7 +30,16 @@ class TenantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tenant = new Tenant();
+        $recordCount = Tenant::Count();
+        if($recordCount > 5){
+            return view('welcome');
+        }
+        else{
+            $tenant->name = $request->name;
+            $tenant->des = $request->des;
+            $tenant->save();
+        }
     }
 
     /**
@@ -39,7 +47,10 @@ class TenantController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $tenant= Tenant::find ($id);
+        return view('tenant.show', [
+            'tenant' => $tenant
+        ]);
     }
 
     /**
@@ -47,7 +58,10 @@ class TenantController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $tenant = Tenant::find($id);
+        return view('tenant/edit', [
+         'tenant' => $tenant,
+        ]);
     }
 
     /**
@@ -55,7 +69,12 @@ class TenantController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $tenant = Tenant::find($id);
+        $tenant->name = $request->name;
+        $tenant->address = $request->address;
+        $tenant->phone = $request->phone;
+        $tenant->save();
+        return redirect('/tenant');
     }
 
     /**
@@ -63,6 +82,8 @@ class TenantController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $tenant = Tenant::find($id);
+        $tenant->delete();
+        return redirect('/tenant');
     }
 }
