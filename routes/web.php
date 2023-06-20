@@ -19,4 +19,4 @@ Route::get('/', function () {
 Route::resource('/areas', AreaController::class);
 Route::resource('/managements', ManagementController::class);
 Route::resource('/stores', StoreController::class);
-Route::resource('/tenants', TenantController::class);
+Route::resource('/tenats', TenantController::class);
