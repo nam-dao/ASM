@@ -29,11 +29,7 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new Store();
-        $recordCount = Store::count();
-            return view('welcome');
-
-            $store->id = $request->id;
+            $store = new Store();
             $store->name = $request->name;
             $store->area_id = $request->area_id;
             $store->management_id = $request->management_id;

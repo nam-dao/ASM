@@ -9,7 +9,7 @@
         <p class="p2">Name of Store:   {{$store->name}}</p>
         <p class="p3">Description about Store:</br><br>{{$store->des}}</p>
         <a href="{{url("/stores/".$store->id."/edit")}}" class="p4">Update</a>
-        <form action="{{url("/stores/".$store->id)}}">
+        <form action="{{url("/stores/".$store->id)}}" method="post">
             {{ method_field('DELETE') }}
             @csrf
             <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>

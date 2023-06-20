@@ -14,7 +14,7 @@
     <label for="text">Description</label>
     <input type="text" value="{{$managementt->phone}}" name="phone" required>
     
-    <a href="/areas" class="exit">Cancel</a>
+    <a href="/managements" class="exit">Cancel</a>
     <input type="submit" value="Submit">
   </form>
 @endsection

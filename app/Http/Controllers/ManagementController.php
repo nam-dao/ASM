@@ -62,7 +62,7 @@ class ManagementController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $managementt = new Management();
+        $managementt = Management::find($id);
 
         $managementt->name = $request->name;
         $managementt->address = $request->address;

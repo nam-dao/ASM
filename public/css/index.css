@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.menu {
+    height: 40px;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+
+ul li {
+    display: inline-block;
+    padding: 10px 20px 0 20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.main {
+    padding: 20px;
+  }
+.main .card {
+    background-color: #f9f9f9;
+    padding: 40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    position: relative;
+  }
+.main .card p {
+    margin: 16px 0 16px 0;
+    display: inline-block;
+    position: relative;
+    top: 20px;
+}
+  
+.main .card h2 {
+    margin-top: 0;
+  }
+.main .card form a {
+    padding: 10px 26px;
+    background-color: #ffffff;
+    position: relative;
+    top: -39px;
+    left: 1250px;
+    font-size: 14px;
+    border: 1px solid #ffffff;
+}
+.main .card form button{
+    position: relative;
+    top: -40px;
+    left: 1260px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+.main .card form button:hover, .main .card a:hover {
+    background-color: #00b3a1;
+    color: #fff;
+}

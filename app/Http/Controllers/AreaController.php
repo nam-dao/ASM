@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Area;
 use Illuminate\Http\Request;
 
 class AreaController extends Controller
@@ -31,15 +32,10 @@ class AreaController extends Controller
     public function store(Request $request)
     {
         $area = new Area();
-        $recordCount = Area::Count();
-        if($recordCount > 5){
-            return view('welcome');
-        }
-        else{
             $area->name = $request->name;
             $area->des = $request->des;
             $area->save();
-        }
+            return redirect('/areas');
     }
 
     /**

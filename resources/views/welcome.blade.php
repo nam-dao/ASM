@@ -10,7 +10,7 @@
             </div>
         </a>
 
-        <a href="/ternants">
+        <a href="/tenants">
             <div class="card">
 
                 <h2>Terant list</h2>

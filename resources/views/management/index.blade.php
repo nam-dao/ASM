@@ -4,7 +4,7 @@
 <div class="main">
     @foreach ( $management as $managementt )
     <div class="card">
-        <h2>The ID: {{$managementt->id}}</h2>
+        <h2>The Management ID: {{$managementt->id}}</h2>
       <p>Name: {{$managementt->name}}</p>
       <form action="{{url("/managements/".$managementt->id)}}" method="post">
         {{ method_field('DELETE') }}

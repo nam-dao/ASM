@@ -3,7 +3,7 @@
 @section('content')
 <form action="/managements" method="post">
   @csrf
-    <h2>Area</h2>
+    <h2>Management</h2>
     <label for="name">Name</label>
     <input type="text" name="name" required>
     

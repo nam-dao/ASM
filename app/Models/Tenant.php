@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tenant extends Model
 {
     use HasFactory;
-    protected $table ="tenants";
-    protected $fillable=[
-        'name','address','phone'
+    protected $table = "tenants";
+    protected $filltable = [
+         'name', 'address', 'phone'
     ];
-    public function stores(){
-        return $this-> hasMany(Store::class,);
+    public function stores() {
+        return $this->hasMany(Store::class);
     }
-
 }

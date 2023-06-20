@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class TenantController extends Controller
@@ -30,16 +31,12 @@ class TenantController extends Controller
      */
     public function store(Request $request)
     {
-        $tenant = new Tenant();
-        $recordCount = Tenant::Count();
-        if($recordCount > 5){
-            return view('welcome');
-        }
-        else{
+            $tenant = new Tenant();
             $tenant->name = $request->name;
-            $tenant->des = $request->des;
+            $tenant->address = $request->address;
+            $tenant->phone = $request->phone;
             $tenant->save();
-        }
+            return redirect('/tenants');
     }
 
     /**
@@ -74,7 +71,7 @@ class TenantController extends Controller
         $tenant->address = $request->address;
         $tenant->phone = $request->phone;
         $tenant->save();
-        return redirect('/tenant');
+        return redirect('/tenants');
     }
 
     /**
@@ -84,6 +81,6 @@ class TenantController extends Controller
     {
         $tenant = Tenant::find($id);
         $tenant->delete();
-        return redirect('/tenant');
+        return redirect('/tenants');
     }
 }

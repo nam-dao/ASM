@@ -8,7 +8,7 @@ body {
     padding: 0;
   }
 .header {
-    background-color: #333;
+    background-color: #2b3494;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -32,14 +32,14 @@ a {
     color: black;
 }
 .menu ul li:hover {
-  background-color: #333;
+  background-color: #00b3a1;
 }
 .menu ul li:hover a{
   color:#f1f1f1;
 }
 
 footer {
-    background-color: #333;
+    background-color: #2b3494;
     color: #fff;
     padding: 10px;
     text-align: center;
