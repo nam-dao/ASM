@@ -9,7 +9,7 @@ class Tenant extends Model
 {
     use HasFactory;
     protected $table = "tenants";
-    protected $filltable = [
+    protected $fillable = [
          'name', 'address', 'phone'
     ];
     public function stores() {

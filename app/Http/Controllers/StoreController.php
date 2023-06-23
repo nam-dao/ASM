@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Store;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -12,8 +14,12 @@ class StoreController extends Controller
     public function index()
     {
         $stores = Store::all();
+        $tenants = Tenant::all();
 
-        return view('store.index', ['stores' => $stores]);
+        return view('store.index', [
+            'stores' => $stores,
+            'tenants' => $tenants
+        ]);
     }
 
     /**
@@ -29,16 +35,12 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-            $store = new Store();
-            $store->name = $request->name;
-            $store->area_id = $request->area_id;
-            $store->management_id = $request->management_id;
-            $store->tenant_id = $request->tenant_id;
-            $store->des = $request->des;
+        $store = new Store();
+        $store->name = $request->name;
+        $store->des = $request->des;
+        $store->save();
 
-            $store->save();
-
-            return redirect('/stores');
+        return redirect('/stores');
     }
 
     /**
@@ -47,8 +49,11 @@ class StoreController extends Controller
     public function show(string $id)
     {
         $store = Store::find($id);
+        $tenants = Tenant::all();
         return view('store.show', [
-        'store' => $store]);
+            'store' => $store,
+            'tenants' => $tenants,
+        ]);
     }
 
     /**
@@ -57,7 +62,7 @@ class StoreController extends Controller
     public function edit(string $id)
     {
         $store = Store::find($id);
-        return view('store.edit', [ 'store' => $store,]);
+        return view('store.edit', ['store' => $store,]);
     }
 
     /**
@@ -66,13 +71,9 @@ class StoreController extends Controller
     public function update(Request $request, string $id)
     {
         $store = Store::find($id);
-        
-        $store->name = $request->name;
-        $store->area_id = $request->area_id;
-        $store->management_id = $request->management_id;
-        $store->tenant_id = $request->tenant_id;
-        $store->des = $request->des;
 
+        $store->name = $request->name;
+        $store->des = $request->des;
         $store->save();
 
         return redirect('/stores');

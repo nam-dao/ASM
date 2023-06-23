@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Management;
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 class Store extends Model
 {
     use HasFactory;
     protected $table = "stores";
-    protected $filltable = [
+    protected $fillable = [
          'area_id', 'management_id', 'tenant_id', 'name', 'des'
     ];
     public function area() {
