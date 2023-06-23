@@ -5,11 +5,11 @@
     <div class="card">
         <a href="">
           <h2></h2>
-        <p class="p1">Name of management:   {{$management->name}}</p>
-        <p class="p2">Address of management:   {{$management->address}}</p>
-        <p class="p3">Phone about Management:</br><br>{{$management->phone}}</p>
-        <a href="{{url("/managements/".$management->id."/edit")}}" class="p4">Update</a>
-        <form action="{{url("/managements/".$management->id)}}" method="post">
+        <p class="p1">Name of manager:   {{$manager->name}}</p>
+        <p class="p2">Address of manager:   {{$manager->address}}</p>
+        <p class="p3">Phone about manager:</br><br>{{$manager->phone}}</p>
+        <a href="{{url("/managers/".$manager->id."/edit")}}" class="p4">Update</a>
+        <form action="{{url("/managers/".$manager->id)}}" method="post">
             {{ method_field('DELETE') }}
             @csrf
             <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>

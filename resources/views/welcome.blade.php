@@ -2,7 +2,7 @@
 @extends('templates.tpl_default')
 @section('content')
     <div class="main">
-        <a href="/managements">
+        <a href="/managers">
             <div class="card">
                 <h2>Management list</h2>
                 <p>Show Management list</p>
@@ -13,7 +13,7 @@
         <a href="/tenants">
             <div class="card">
 
-                <h2>Terant list</h2>
+                <h2>Tenant list</h2>
                 <p>Show Terant list</p>
 
             </div>

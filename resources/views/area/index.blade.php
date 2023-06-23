@@ -4,8 +4,8 @@
 <div class="main">
     @foreach ( $areas as $area )
     <div class="card">
-        <h2>The ID: {{$area->id}}</h2>
-      <p>Name: {{$area->name}}</p>
+        <h2>Area: {{$area->name}}</h2>
+      <p>The ID: {{$area->id}}</p>
       <form action="{{url("/areas/".$area->id)}}" method="post">
         {{ method_field('DELETE') }}
         @csrf

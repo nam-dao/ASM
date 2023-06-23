@@ -2,14 +2,14 @@
 @extends('templates.tpl_default')
 @section('content')
 <div class="main">
-    @foreach ( $management as $managementt )
+    @foreach ( $managers as $manager )
     <div class="card">
-        <h2>The Management ID: {{$managementt->id}}</h2>
-      <p>Name: {{$managementt->name}}</p>
-      <form action="{{url("/managements/".$managementt->id)}}" method="post">
+        <h2>The Name Manager : {{$manager->name}}</h2>
+      <p>Phone: {{$manager->phone}}</p>
+      <form action="{{url("/managers/".$manager->id)}}" method="post">
         {{ method_field('DELETE') }}
         @csrf
-        <a href="{{url("/managements/".$managementt->id)}}">View</a>
+        <a href="{{url("/managers/".$manager->id)}}">View</a>
           <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
         </form>
     </div>    

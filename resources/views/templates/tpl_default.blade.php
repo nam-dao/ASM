@@ -14,10 +14,10 @@
     <div class="menu">
         <ul>
             <li><a href="/">Home Page</a></li>
-            <li><a href="managements/create">Add Management</a></li>
-            <li><a href="tenants/create">Add Terant</a></li>
-            <li><a href="stores/create">Add Store</a></li>
-            <li><a href="areas/create">Add Area</a></li>
+            <li><a href="/managers/create">Add Management</a></li>
+            <li><a href="/tenants/create">Add Terant</a></li>
+            <li><a href="/stores/create">Add Store</a></li>
+            <li><a href="/areas/create">Add Area</a></li>
         </ul>
     </div>
     @yield('content')

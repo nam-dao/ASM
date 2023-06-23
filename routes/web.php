@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
-use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\TenantController;
 
@@ -21,6 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/areas', AreaController::class);
-Route::resource('/managements', ManagementController::class);
+Route::resource('/managers', ManagerController::class);
 Route::resource('/stores', StoreController::class);
 Route::resource('/tenants', TenantController::class);

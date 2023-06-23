@@ -67,12 +67,3 @@ form {
   input[type="submit"]:hover {
     background-color: #45a049;
   }
-
-  select {
-    width: 80%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-left: 40px;
-  }
