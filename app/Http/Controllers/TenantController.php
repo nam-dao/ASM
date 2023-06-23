@@ -2,24 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Store;
 use App\Models\Tenant;
+use \App\Models\Area;
+use App\Models\Store;
+use App\Models\Manager;
 use Illuminate\Http\Request;
 
-class StoreController extends Controller
+class TenantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $stores = Store::all();
         $tenants = Tenant::all();
 
-        return view('store.index', [
-            'stores' => $stores,
-            'tenants' => $tenants
-        ]);
+        return view(
+            'tenant.index',
+            [
+                'tenants' => $tenants,
+            ]
+        );
     }
 
     /**
@@ -27,7 +30,16 @@ class StoreController extends Controller
      */
     public function create()
     {
-        return view('store.create');
+        $areas = Area::all();
+        $stores = Store::all();
+        $managers = Manager::all();
+        return view('tenant.create',
+        [
+            'areas' => $areas,
+            'stores'=> $stores,
+            'managers' => $managers,
+        ]
+        );
     }
 
     /**
@@ -35,12 +47,15 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $store = new Store();
-        $store->name = $request->name;
-        $store->des = $request->des;
-        $store->save();
-
-        return redirect('/stores');
+        $tenant = new Tenant();
+        $tenant->name = $request->name;
+        $tenant->address = $request->address;
+        $tenant->phone = $request->phone;
+        $tenant->area_id = $request->area;
+        $tenant->store_id = $request->store;
+        $tenant->manager_id = $request->manager;
+        $tenant->save();
+        return redirect('/tenants');
     }
 
     /**
@@ -48,11 +63,15 @@ class StoreController extends Controller
      */
     public function show(string $id)
     {
+        $tenant = Tenant::find($id);
+        $area = Area::find($id);
         $store = Store::find($id);
-        $tenants = Tenant::all();
-        return view('store.show', [
+        $manager = Manager::find($id);
+        return view('tenant.show', [
+            'tenant' => $tenant,
+            'area' => $area,
             'store' => $store,
-            'tenants' => $tenants,
+            'manager' => $manager,
         ]);
     }
 
@@ -61,8 +80,16 @@ class StoreController extends Controller
      */
     public function edit(string $id)
     {
-        $store = Store::find($id);
-        return view('store.edit', ['store' => $store,]);
+        $tenant = Tenant::find($id);
+        $areas = Area::all();
+        $stores = Store::all();
+        $managers = Manager::all();
+        return view('tenant.edit', [
+            'tenant' => $tenant,
+            'areas' => $areas,
+            'stores'=> $stores,
+            'managers' => $managers,
+        ]);
     }
 
     /**
@@ -70,13 +97,15 @@ class StoreController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $store = Store::find($id);
-
-        $store->name = $request->name;
-        $store->des = $request->des;
-        $store->save();
-
-        return redirect('/stores');
+        $tenant = Tenant::find($id);
+        $tenant->name = $request->name;
+        $tenant->address = $request->address;
+        $tenant->phone = $request->phone;
+        $tenant->area_id = $request->area;
+        $tenant->store_id = $request->store;
+        $tenant->manager_id = $request->manager;
+        $tenant->save();
+        return redirect('/tenants');
     }
 
     /**
@@ -84,8 +113,8 @@ class StoreController extends Controller
      */
     public function destroy(string $id)
     {
-        $store = Store::find($id);
-        $store->delete();
-        return redirect('/stores');
+        $tenant = Tenant::find($id);
+        $tenant->delete();
+        return redirect('/tenants');
     }
 }
