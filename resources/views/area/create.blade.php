@@ -4,7 +4,7 @@
 <form action="/areas" method="post">
   @csrf
     <h2>Area</h2>
-    <label for="name" >Name</label>
+    <label for="name" >Type</label>
         <select name="name" aria-label="Select Area" required>
             <option selected>Please choose one</option>
             <option>VIP Area</option>

@@ -4,7 +4,7 @@
 <div class="main">
     @foreach ( $areas as $area )
     <div class="card">
-        <h2>Area: {{$area->name}}</h2>
+        <h2>Type: {{$area->name}}</h2>
       <p>The ID: {{$area->id}}</p>
       <form action="{{url("/areas/".$area->id)}}" method="post">
         {{ method_field('DELETE') }}
