@@ -6,6 +6,7 @@
         <a href="">
           <h2></h2>
         <p class="p1">Name of manager:   {{$manager->name}}</p>
+        <img src="{{url("/storage/".$manager->photo)}}" alt="">
         <p class="p2">Address of manager:   {{$manager->address}}</p>
         <p class="p3">Phone about manager:</br><br>{{$manager->phone}}</p>
         <a href="{{url("/managers/".$manager->id."/edit")}}" class="p4">Update</a>

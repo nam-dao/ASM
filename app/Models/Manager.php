@@ -11,7 +11,7 @@ class Manager extends Model
     use HasFactory;
     protected $table = "managers";
     protected $fillable = [
-        'name', 'address', 'phone'
+        'name', 'address', 'phone', 'photo'
     ];
     public function tenants() {
 

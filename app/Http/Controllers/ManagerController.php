@@ -33,6 +33,8 @@ class ManagerController extends Controller
         $manager->name = $request->name;
         $manager->address = $request->address;
         $manager->phone = $request->phone;
+        $photo = $request->file('photo')->store('public'); 
+        $manager->photo = substr($photo,strlen('public/'));
         $manager->save();
 
         return redirect('/managers');
