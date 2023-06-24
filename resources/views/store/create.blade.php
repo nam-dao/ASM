@@ -7,9 +7,6 @@
     <label for="name">Name</label>
     <input type="text" name="name" required>
 
-    <label for="phone">Phone</label>
-    <input type="text" name="phone" required>
-    
     <label for="description">Descripton</label>
     <input type="text" name="des" required>
     

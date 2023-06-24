@@ -13,7 +13,7 @@ class Manager extends Model
     protected $fillable = [
         'name', 'address', 'phone', 'photo'
     ];
-    public function tenants() {
+    public function tenant() {
 
         return $this->hasMany(Tenant::class);
     }

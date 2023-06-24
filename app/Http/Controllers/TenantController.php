@@ -64,14 +64,8 @@ class TenantController extends Controller
     public function show(string $id)
     {
         $tenant = Tenant::find($id);
-        $area = Area::find($id);
-        $store = Store::find($id);
-        $manager = Manager::find($id);
         return view('tenant.show', [
             'tenant' => $tenant,
-            'area' => $area,
-            'store' => $store,
-            'manager' => $manager,
         ]);
     }
 

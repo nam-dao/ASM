@@ -13,7 +13,7 @@ class Area extends Model
     protected $fillable = [
         'name', 'des'
     ];
-    public function tenants(){
+    public function tenant(){
         return $this->hasMany(Tenant::class);
     }
 }
